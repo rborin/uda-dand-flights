@@ -7,90 +7,84 @@
 	<script src="js/main.js"></script>
 	
 	<style>
-	.contents {
-		margin-left: auto;
-		margin-right: auto;
-		width: 720px;
-	}
-	
-	.graph_container {
-		width: 100%;
-		height: 540px;
-		border-style: solid;
-    	border-color: lightgray;
-    	border-width: thin;
-	}
-
-	.graph_container2 {
-		margin-left: auto;
-		margin-right: auto;
-		width: 800px;
-		height: 600px;
-		border-style: solid;
-    	border-color: lightgray;
-    	border-width: thin;
-	}
-	
-	.xaxis path,
-	.xaxis line {
-		fill: none;
-		stroke: black;
-		shape-rendering: crispEdges;
-	}
-
-	.yaxis path,
-	.yaxis line {
-		fill: none;
-		stroke: black;
-		shape-rendering: crispEdges;
-	}
-	
-	.tick line {
-    	opacity: 0.1;
-	}
-	
-	.axis text {
-		font-family: sans-serif;
-		font-size: 11px;
-	}
-	
-	/*
-	 * Year selector rules:
-	 *
-	 * References:
-	 * - https://stackoverflow.com/questions/5306640/how-to-set-bullet-colors-in-ul-li-html-lists-via-css-without-using-any-images-or
-	 * - https://stackoverflow.com/questions/32040635/css-box-around-text-set-box-size
-	 */
-	.year_selector li {
-		width: 6em;
-		float: left;
-		color: #666;
-	}
-
-	.year_selector a {
-		color: gray;
-		text-decoration: none;
-	}
-
-	.year_selector a:hover {
-		background-color: #eee;
-	}
-	
-	.year_selector .selected a {
-		border: 1px solid #000;
-	}
-
-	.year_selector .not_selected a {
-	}
-
-	</style>
+    .contents {
+        margin-left: auto;
+        margin-right: auto;
+        width: 720px;
+    }
+    
+    .graph_container {
+        width: 100%;
+        height: 540px;
+        border-style: solid;
+        border-color: lightgray;
+        border-width: thin;
+    }
+    
+    .graph_container2 {
+        margin-left: auto;
+        margin-right: auto;
+        width: 800px;
+        height: 600px;
+        border-style: solid;
+        border-color: lightgray;
+        border-width: thin;
+    }
+    
+    .xaxis path, .xaxis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+    
+    .yaxis path, .yaxis line {
+        fill: none;
+        stroke: black;
+        shape-rendering: crispEdges;
+    }
+    
+    .tick line {
+        opacity: 0.1;
+    }
+    
+    .axis text {
+        font-family: sans-serif;
+        font-size: 11px;
+    }
+    
+    /*
+     * Year selector rules:
+     *
+     * References:
+     * - https://stackoverflow.com/questions/5306640/how-to-set-bullet-colors-in-ul-li-html-lists-via-css-without-using-any-images-or
+     * - https://stackoverflow.com/questions/32040635/css-box-around-text-set-box-size
+     */
+    .year_selector li {
+        width: 6em;
+        float: left;
+        color: #666;
+    }
+    
+    .year_selector a {
+        color: gray;
+        text-decoration: none;
+    }
+    
+    .year_selector a:hover {
+        background-color: #eee;
+    }
+    
+    .year_selector .selected a {
+        border: 1px solid #000;
+    }
+    
+    .year_selector .not_selected a {
+    }
+</style>
 </head>
 
 <body>
 	<div class="contents">
-		<h2>Introduction</h2>
-		Blah blah blah...
-		<h2>Graph</h2>
 		<div class="graph_container"></div>
 		<h4>Select year:</h4>
 		<ul class="year_selector">
