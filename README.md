@@ -1,4 +1,4 @@
-# Summary
+## Summary
 
 The visualization shows the percentage of flights in each month of the year
 whose departures have been delayed 20 minutes or more. Such information is
@@ -9,21 +9,21 @@ visualization were extracted from the
 covering years 1988 to 2008.
 
 
-# Design
+## Design
 
 Because the data being presented represents a time series, one of the most 
 natural ways of displaying it is in the form of a line graph which was the
 one chosen. Each year is displayed separately in order to allow the viewer
 to recognize annual seasonalities. The months highlighted help the viewer
-identify the best months for an air traveller to avoid flight delays.
+identify the best months for an air traveler to avoid flight delays.
 
 
-# Feedback
+## Feedback
 
 Initial version - feedback greatly appreciated!
 
 
-# Resources
+## Resources
 
 Main sources of information:
 
