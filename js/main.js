@@ -2,30 +2,34 @@
  * Handle main graph.
  */
 
-var GraphConfigs = {
-	"monthly": {
-		"x_field": "Month",
-		"y_field": "% DepDelay>20",
-		"x_domain": [1, 12],
-		"y_domain": [0, 30],
-		"trans_duration": 400,
-		"year": 1988,
-		"x_axis_label": "Month",
-		"y_axis_label": "Delayed flights (%)"
-	},
-	"weekly": {
-		"x_field": "Week",
-		"y_field": "% DepDelay>20",
-		"x_domain": [1, 53],
-		"y_domain": [0, 50],
-		"trans_duration": 400,
-		"year": 1988,
-		"x_axis_label": "Week",
-		"y_axis_label": "Delayed flights (%)"
-	},
+/*
+ * Possible graph configurations. Currently, only the "monthly"
+ * configuration is being explored in the visualization. 
+ */
+var InitialGraphConfigs = {
+    "monthly": {
+        "x_field": "Month",
+        "y_field": "% DepDelay>20",
+        "x_domain": [1, 12],
+        "y_domain": [0, 30],
+        "trans_duration": 400,
+        "year": 1988,
+        "x_axis_label": "Month",
+        "y_axis_label": "Delayed flights (%)"
+    },
+    "weekly": {
+        "x_field": "Week",
+        "y_field": "% DepDelay>20",
+        "x_domain": [1, 53],
+        "y_domain": [0, 50],
+        "trans_duration": 400,
+        "year": 1988,
+        "x_axis_label": "Week",
+        "y_axis_label": "Delayed flights (%)"
+    },
 };
 
-var GraphConfig = GraphConfigs["monthly"];
+var GraphConfig = InitialGraphConfigs["monthly"];
 var Years = null;
 var updateFunction = null;
 
@@ -65,7 +69,7 @@ function makeLowestSelector(data, n, order_field, value_in, value_notin)
     var threshold = (vals[n-1] + vals[n]) * 0.5;
     var f = function(d) {
         return (+d[order_field] <= threshold) ? value_in : value_notin;
-    }
+    };
 
     return f;
 }
@@ -90,6 +94,13 @@ function startAnimation(animate_function)
     }
 }
 
+/*
+ * Advances to the next year and updates the graph.
+ * 
+ * Return value indicates whether or not advancing to the next
+ * year was possible.
+ * 
+ */
 function advanceYear()
 {
     var keepOn = true;
@@ -105,6 +116,9 @@ function advanceYear()
     return keepOn;
 }
 
+/*
+ * Handles the year selection button clicked event.
+ */
 function onYearClicked(year)
 {
     if (AnimationTimerId == null) {
@@ -142,6 +156,9 @@ function updateYearSelector(year)
       });
 }
 
+/*
+ * Renders the main graph.
+ */
 function draw(data)
 {
     var margins = {
@@ -149,8 +166,8 @@ function draw(data)
         "bottom": 50,
         "left": 75,
         "right": 50
-    }
-	
+    };
+    
     var container = d3.select(".graph_container"); 
     var clientWidth = container[0][0].clientWidth;
     var clientHeight = container[0][0].clientHeight;
@@ -200,12 +217,12 @@ function draw(data)
 
     var xAxis = d3.svg.axis()
                     .scale(xScale)
-                    .innerTickSize(-graphHeight);		// Reference: http://bl.ocks.org/hunzy/11110940
+                    .innerTickSize(-graphHeight);        // Reference: http://bl.ocks.org/hunzy/11110940
 
     var yAxis = d3.svg.axis()
                     .scale(yScale)
                     .orient("left")
-                    .innerTickSize(-graphWidth);		// Reference: http://bl.ocks.org/hunzy/11110940
+                    .innerTickSize(-graphWidth);        // Reference: http://bl.ocks.org/hunzy/11110940
 
     var xAxisGroup = svg.append("g")
                     .attr("class", "axis xaxis")
@@ -320,7 +337,7 @@ function draw(data)
         var dataFiltered = data.filter(function(d) { 
             return d['Year'] == year;
         });
-	    
+        
         /*
          *  Update paths:
          */
@@ -336,7 +353,7 @@ function draw(data)
             .transition()
             .duration(GraphConfig["trans_duration"])
             .attr("d", line);
-	    
+
         /*
          *  Update markers:
          */

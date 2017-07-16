@@ -72,24 +72,27 @@
     </style>
 </head>
 <body>
-	<div class="contents">
-		<div class="graph_container"></div>
-		<h4>Select year:</h4>
-		<ul class="year_selector">
-		</ul>
-	</div>
+<div class="contents">
+<div class="graph_container"></div>
+<h4>Select year:</h4>
+<ul class="year_selector">
+</ul>
+</div>
 
-	<script type="text/javascript">
-	d3.csv("data/flight_delays_monthly.csv", function(obj) {
+<script type="text/javascript">
+/* 
+ * Load CSV converting all fields to a numeric data type. 
+ */ 
+d3.csv("data/flight_delays_monthly.csv", function(obj) {
+	for (var key in obj) {
 		// REF: https://stackoverflow.com/questions/208016/how-to-list-the-properties-of-a-javascript-object
-		for (var key in obj) {
-		    if (obj.hasOwnProperty(key)) {
-		        // Make all fields numeric. 
-				obj[key] = +obj[key];
-		    }
-		}
-		return obj;
-	}, draw);
-	</script>
+	    if (obj.hasOwnProperty(key)) {
+	        // Make all fields numeric. 
+	        obj[key] = +obj[key];
+	    }
+	}
+	return obj;
+}, draw);
+</script>
 </body>
 </html>
