@@ -1,17 +1,19 @@
 
 ## Summary
 
-TODO: 
-	- Improve this text as per viewer comment.
-    - Tell what the main finding is: best month to avoid delays
+The U.S. has the highest number of air passengers in the world, with more 
+than 700 million passengers being transported each  year (since 2004). With 
+such huge number of travelers, airlines and airports are very busy and flight 
+delays are expected to happen now and then. If you wanted to avoid flight 
+delays, what month would you choose to fly?  
 
 The visualization shows the percentage of flights in each month of the year
-whose departures have been delayed 20 minutes or more. Such information is
-presented by advancing along the years through animation. The three months
-having fewest delays are highlighted. The statistics used to build the
-visualization were extracted from the 
-[U.S. Flights dataset](http://stat-computing.org/dataexpo/2the-data.html) 
-covering years 1988 to 2008.009/
+whose departures have been delayed 20 minutes (or longer) from year 1988 to 
+2008. The statistics used to build the visualization were obtained from 
+[U.S. Airline on-time performance](http://stat-computing.org/dataexpo/2009/).
+In the graph, the three months having fewest delays are highlighted.
+It was found that, over the years, September tends to be one of the
+best months for avoiding flight delays.
 
 
 ## Design
