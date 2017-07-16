@@ -61,6 +61,7 @@
         
         .year_selector a:hover {
             background-color: #eee;
+            cursor: pointer;
         }
         
         .year_selector .selected a {
@@ -69,14 +70,62 @@
         
         .year_selector .not_selected a {
         }
+        
+        /*
+         * Play button rules:
+         * 
+         * Reference: 
+         * - https://codepen.io/chrisdwheatley/pen/cJKIr
+         */
+        .play-button-outer {
+            margin: 7em auto 0 auto;
+            width: 5em;
+            height: 5em;
+            background-color: #eee;
+            cursor: pointer;
+        }
+        
+        .play-button {
+            margin: 0 auto;
+            top: 25%;
+            position: relative;  
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 1.25em 0 1.25em 2.5em;
+            border-color: transparent transparent transparent #777;
+        }
+        
+        .play-button-outer:hover {
+            background-color: #ccc;
+        }
+        
+        .play-button-outer:hover .play-button {
+            opacity: 1;
+        }
+        
+        .play-button-text {
+            margin: 5px auto;
+            text-align: center;
+            color: #999;
+        }
+
     </style>
 </head>
 <body>
 <div class="contents">
-<div class="graph_container"></div>
-<h4>Select year:</h4>
-<ul class="year_selector">
-</ul>
+    <div class="graph_container"></div>
+    <h4>Select year:</h4>
+    <ul class="year_selector">
+    </ul>
+
+    <div class="play-button-outer" onclick="onReplayAnimClicked();">
+        <div class="play-button"></div>
+    </div>
+
+    <div class="play-button-text">
+    (replay animation)
+    </div>
 </div>
 
 <script type="text/javascript">

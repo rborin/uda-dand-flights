@@ -117,12 +117,24 @@ function advanceYear()
 }
 
 /*
- * Handles the year selection button clicked event.
+ * Handles the year selection button click event.
  */
 function onYearClicked(year)
 {
     if (AnimationTimerId == null) {
         updateFunction(year);
+    }
+}
+
+/*
+ * Handles the replay button click event.
+ */
+function onReplayAnimClicked()
+{
+    if (AnimationTimerId == null) {
+        GraphConfig["year"] = Years[0];
+        updateFunction(Years[0]);
+        startAnimation(advanceYear);
     }
 }
 
@@ -215,14 +227,15 @@ function draw(data)
                     .domain(GraphConfig["y_domain"])
                     .range([graphHeight, 0]);
 
+    // Reference: http://bl.ocks.org/hunzy/11110940
     var xAxis = d3.svg.axis()
                     .scale(xScale)
-                    .innerTickSize(-graphHeight);        // Reference: http://bl.ocks.org/hunzy/11110940
+                    .innerTickSize(-graphHeight);
 
     var yAxis = d3.svg.axis()
                     .scale(yScale)
                     .orient("left")
-                    .innerTickSize(-graphWidth);        // Reference: http://bl.ocks.org/hunzy/11110940
+                    .innerTickSize(-graphWidth);
 
     var xAxisGroup = svg.append("g")
                     .attr("class", "axis xaxis")
@@ -235,7 +248,8 @@ function draw(data)
     
     /*
      * Displace x & y axis labels:
-     * Reference: https://groups.google.com/forum/?fromgroups#!topic/d3-js/heOBPQF3sAY
+     * Reference: 
+     * - https://groups.google.com/forum/?fromgroups#!topic/d3-js/heOBPQF3sAY
      */
     svg.selectAll(".xaxis text")
        .attr("transform", "translate(0,5)");
@@ -250,13 +264,15 @@ function draw(data)
                     .attr("class", "glabel");
 
     labels.append("text")
-        .attr("transform", "translate(" + (graphWidth/2) + "," + (graphHeight + 40) + ")")
+        .attr("transform", 
+              "translate(" + (graphWidth/2) + "," + (graphHeight + 40) + ")")
         .attr("text-anchor", "middle")
         .attr("font-size", "1.15em")
         .text(GraphConfig["x_axis_label"]);
 
     labels.append("text")
-        .attr("transform", "translate(" + (-35) + "," + (graphHeight/2) + ") rotate(-90)")
+        .attr("transform", 
+              "translate(" + (-35) + "," + (graphHeight/2) + ") rotate(-90)")
         .attr("text-anchor", "middle")
         .attr("font-size", "1.15em")
         .text(GraphConfig["y_axis_label"]);
