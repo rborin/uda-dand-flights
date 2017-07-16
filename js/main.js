@@ -326,9 +326,44 @@ function draw(data)
     markers.attr("cx", getScreenCoordX)
             .attr("cy", getScreenCoordY)
             .attr("r", makeLowestSelector(dataFiltered, 3, 
-                        GraphConfig["y_field"], 8, 4))
+                        GraphConfig["y_field"], 7, 4))
             .attr("fill", makeLowestSelector(dataFiltered, 3, 
                         GraphConfig["y_field"], "orange", "steelblue"));
+    
+    /*
+     * Legend:
+     */
+    var legend = svg.append("g")
+                .attr("class", "legend")
+                .attr("transform", 
+                      "translate(" + (0.59 * graphWidth) + 
+                      ","          + (0.07 * graphHeight) + ")");
+
+    // Preferable months:
+    legend.append("circle")
+        .attr("cx", 0)
+        .attr("cy", 0)
+        .attr("r", 7)
+        .attr("fill", "orange");
+
+    legend.append("text")
+        .attr("transform", "translate(20,4)")
+        .attr("font-size", "0.9em")
+        .attr("fill", "gray")
+        .text("Preferable months (to avoid delays)");
+    
+    // Other months:
+    legend.append("circle")
+        .attr("cx", 0)
+        .attr("cy", 25)
+        .attr("r", 4)
+        .attr("fill", "steelblue");
+    
+    legend.append("text")
+        .attr("transform", "translate(20,30)")
+        .attr("font-size", "0.9em")
+        .attr("fill", "gray")
+        .text("Other months");
 
     /*
      * Updating function:
@@ -366,7 +401,7 @@ function draw(data)
         markers.transition()
                 .duration(GraphConfig["trans_duration"])
                 .attr("r", makeLowestSelector(dataFiltered, 3, 
-                            GraphConfig["y_field"], 6, 4))
+                            GraphConfig["y_field"], 7, 4))
                 .attr("fill", makeLowestSelector(dataFiltered, 3, 
                             GraphConfig["y_field"], "orange", "steelblue"))
                 .attr("cx", getScreenCoordX)
