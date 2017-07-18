@@ -33,18 +33,30 @@ Excel), each line corresponding to a different delay. However, since all lines
 presented the same tendencies I chose only one delay (20 minutes) for the 
 visualization implemented in order to make it simpler for the viewers.
 
-Design changes for second version of the graph:
+Design changes for second version of the visualization:
 
 - Improve summary text to appear more like a narrative story.
 - Add legend to the graph.
 - Add "play" button to allow viewer to repeat animation.
+
+Design changes for third version of the visualization:
+
+- Add text description of the finding to the visualization.
+- Allow the viewer to restart or stop the visualization.
+
+Links to the various versions of the visualization on 
+[bl.ocks.org](http://bl.ocks.org/):
+
+- [Initial version](http://bl.ocks.org/rborin/93eb16653e0ecd0e4ad0762cc6ac7a97)
+- [Second version](http://bl.ocks.org/rborin/e4eb14fd70b12a0726e40bc7b68bd42c)
+- TODO [Third version]()
 
 
 ## Feedback
 
 This section outlines the feedback provided by some viewers.
 
-### Feedback for initial version
+### Feedback for initial version (v1)
 
 - Viewer 1 ([Udacity's forum](https://discussions.udacity.com/t/feedback-needed-us-flights-delays/296249/2?u=rogerio.borin)):
 
@@ -70,13 +82,29 @@ This section outlines the feedback provided by some viewers.
 
 Notes:
 
-- Items marked with an (*) were considered for a second version of the 
+- Items marked with an (*) were considered for the second version of the 
   graph.
 - Only one of the viewers provided specific suggestions for the graph,
   which were mostly accepted.
 - Based on feedback related to the animation showing the passing of the
   years, I decided to add a button to allow the user to repeat the 
   animation.
+  
+### Feedback for second version (v2)
+
+- Udacity's reviewer
+
+	- Finding should be included in the visualization (*).
+	- Finding could be communicated textually (*).
+	- Graph could include absolute counts of delayed flights, possibly
+	  shown when hovering over the data points.
+	- Possibility of stopping the graph's animation was not implemented
+	  even though such feature was asked by a viewer (*). 
+
+Notes:
+
+- Items marked with an (*) were considered for the third version of the 
+  graph.
 
 
 ## Resources
