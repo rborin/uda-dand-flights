@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Handle main graph.
  */
@@ -78,6 +80,24 @@ var AnimationEnabled = true;
 var AnimationTimerId = null;
 
 /*
+ * Event handler for animation started. 
+ */
+function onAnimationStarted()
+{
+    d3.select("#start-stop-button")
+      .attr("class", "stop-button");
+}
+
+/*
+ * Event handler for animation stopped. 
+ */
+function onAnimationStopped()
+{
+    d3.select("#start-stop-button")
+      .attr("class", "play-button");
+}
+
+/*
  * Executes an animation by scheduling a call to 'animate_function'
  * repeatedly as long as the function returns a non-false value. 
  */
@@ -85,10 +105,12 @@ function startAnimation(animate_function)
 {
     if (AnimationEnabled && (AnimationTimerId == null)) {
         // Animations enabled and not yet running:
+        onAnimationStarted();
         AnimationTimerId = window.setInterval(function() {
             if (animate_function() == false) {
                 window.clearInterval(AnimationTimerId);
                 AnimationTimerId = null;
+                onAnimationStopped();
             }
         }, 1200);
     }
@@ -127,14 +149,18 @@ function onYearClicked(year)
 }
 
 /*
- * Handles the replay button click event.
+ * Handles the play/stop button click event.
  */
-function onReplayAnimClicked()
+function onPlayButtonClicked()
 {
     if (AnimationTimerId == null) {
         GraphConfig["year"] = Years[0];
         updateFunction(Years[0]);
         startAnimation(advanceYear);
+    } else {
+        window.clearInterval(AnimationTimerId);
+        AnimationTimerId = null;
+        onAnimationStopped();
     }
 }
 
