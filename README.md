@@ -49,7 +49,7 @@ Links to the various versions of the visualization on
 
 - [Initial version](http://bl.ocks.org/rborin/93eb16653e0ecd0e4ad0762cc6ac7a97)
 - [Second version](http://bl.ocks.org/rborin/e4eb14fd70b12a0726e40bc7b68bd42c)
-- TODO [Third version]()
+- [Third version](http://bl.ocks.org/rborin/071934f700978c535bb58a2fdb7047e1)
 
 
 ## Feedback
